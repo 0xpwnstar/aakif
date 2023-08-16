@@ -15,14 +15,13 @@ function MyTabs() {
       inActiveColor="#828282"
       barStyle={{
         backgroundColor: '#FFFFFF',
-        height: 70,
+        height: 50,
         justifyContent: 'center',
         borderTopLeftRadius: 24,
         borderTopRightRadius: 24,
         borderLeftWidth: 0.2,
         borderRightWidth: 0.2,
         position: 'absolute',
-        overflow: 'hidden',
       }}
       options={{tabBarColor: '#FFFFFF'}}>
       <Tab.Screen

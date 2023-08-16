@@ -5,21 +5,21 @@ import MainContainer from './../components/MainContainer';
 import {constants} from './../constants/constant';
 import {FlashList} from '@shopify/flash-list';
 import {filterData} from './../data/FilterList';
+import {MasonryFlashList} from '@shopify/flash-list';
+import {offerData} from './../data/OfferList';
+import OfferCard from './../components/OfferCard';
 
 export default function OfferDetail() {
   return (
     <>
       <MainContainer
         renderProp={() => (
-          <View style={{paddingTop: 10}}>
+          <View style={{flex: 0.72}}>
             {SearchBar()}
             <View style={{flexDirection: 'row', marginHorizontal: 15}}>
               {FilterList()}
             </View>
-            <View style={{margin: 20}}>
-              <Text> chsi</Text>
-              <Text> chsi</Text>
-            </View>
+            {OfferFlashList()}
           </View>
         )}
       />
@@ -77,6 +77,24 @@ const SearchBar = () => {
           onChangeText={setText}
         />
       </View>
+    </View>
+  );
+};
+
+const OfferFlashList = () => {
+  const FlatListItemSeparator = () => {
+    return <View style={{height: 10}} />;
+  };
+  return (
+    <View style={{marginVertical: 15, height: '100%', paddingLeft: 15}}>
+      <MasonryFlashList
+        data={offerData}
+        showsVerticalScrollIndicator={false}
+        numColumns={2}
+        renderItem={({item, index}) => <OfferCard item={item} index={index} />}
+        estimatedItemSize={200}
+        ItemSeparatorComponent={FlatListItemSeparator}
+      />
     </View>
   );
 };
